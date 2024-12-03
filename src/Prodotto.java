@@ -60,4 +60,31 @@ public class Prodotto {
     return prezzo + (prezzo * iva / 100);
   }
 
+  @Override
+  public String toString() {
+    return "Prodotto [codice=" + codice + ", nome=" + nome + ", marca=" + marca + ", prezzo=" + prezzo + ", iva=" + iva
+        + ", prezzoTotale()=" + prezzoTotale() + "]";
+  }
+
+  // bonus
+  double prezzoTotaleScontato = prezzoTotale();
+
+  public void cartafedelta(String card) {
+    // controllo se ha la carta fedelta
+    if (card.equalsIgnoreCase("y")) {
+      System.out.println("hai diritto a un sconto del 2%");
+      prezzoTotaleScontato -= (prezzoTotaleScontato * 2 / 100);
+    } else {
+      System.out.println("non hai il sconto del 2% vai a registarti nel nostro sito e rihedi la carta fed");
+    }
+
+  }
+
+  public void scontoPhoneMemoria(int memeory) {
+    if (memeory > 32) {
+      System.out.println("hai un sconto del 5%");
+      prezzoTotaleScontato -= (prezzoTotaleScontato * 5 / 100);
+    }
+  }
+
 }
